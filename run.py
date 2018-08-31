@@ -76,7 +76,7 @@ for index in range(n_draws):
     lines.append(lobj)
 
 
-def init():
+def init_ani():
     for line in lines:
         line.set_data([], [])
     return tuple(lines) + (timetext, )
@@ -98,7 +98,7 @@ nums_of_gif = n_iter / plot_freq
 anim = FuncAnimation(
     fig,
     animate,
-    init_func=init,
+    init_func=init_ani,
     frames=np.arange(0, nums_of_gif),
     interval=400)
 anim.save('result.gif', dpi=80, writer='imagemagick')
